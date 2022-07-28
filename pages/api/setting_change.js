@@ -1,0 +1,78 @@
+
+import Cors from 'cors';
+import initMiddleware from '../../lib/init-middleware';
+import { prisma } from "./_base";
+import { apiHandler } from '../../helpers/api';
+const cors = initMiddleware(
+    Cors({
+        methods: ['GET', 'POST', 'OPTIONS'],
+    })
+)
+export default async function settingChange(req, res) {
+    await cors(req, res);
+    switch (req.method) {
+        case 'POST':
+            return removeAddress();
+        default:
+            return res.status(405).send({ responseCode: 405, message: `Method ${req.method} Not Allowed` })
+    }
+    async function removeAddress() {
+        const { user_sfid, setting_type, setting_value  } = req.body;
+        if (user_sfid == "" || user_sfid == undefined)
+            return res.status(200).send({ status:"error", message: "ID is mandatory" })
+        if (setting_type == "" || setting_type == undefined)
+            return res.status(200).send({ status:"error", message: "Type  is mandatory" }) 
+        try {
+            const settingType  = String(setting_type);
+            const cust_id      = String(user_sfid);
+            const settingValue = setting_value?true:false;
+            const accountDet = await prisma.account.findFirst({
+                where: {
+                    sfid: cust_id,
+                }
+            });
+            if(accountDet)
+            {
+                if(settingType == "notification")
+                {
+                    await prisma.account.updates({
+                        where: {
+                            id: accountDet.id,
+                        },
+                        data:{
+                            notifications_access: settingValue
+                        }
+                    });
+                    return res.status(200).json({ status: "success", message: "Notification Updated Successfully" })
+                }else if(settingType == "bio"){
+                    await prisma.account.updates({
+                        where: {
+                            id: accountDet.id,
+                        },
+                        data:{
+                            biometric_access: settingValue
+                        }
+                    });
+                    return res.status(200).json({ status: "success", message: "Biometric Updated Successfully" })
+                }else if(settingType == "mpin"){
+                    await prisma.account.updates({
+                        where: {
+                            id: accountDet.id,
+                        },
+                        data:{
+                            mpin_access: settingValue
+                        }
+                    });
+                    return res.status(200).json({ status: "success", message: "Mpin Access Updated Successfully" })
+                }else{
+                    return res.status(200).json({ status: "error", message: "Type not found" })
+                }
+            }else{
+                return res.status(200).json({ status: "error", message: "Account not found" })
+            }
+        } catch (error) {
+            res.status(400).send({ responseCode: 400, message: error.message ? error.message : error })
+        }
+    }
+}
+

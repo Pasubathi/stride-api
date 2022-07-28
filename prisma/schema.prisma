@@ -1,0 +1,2242 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_WITH_SCHEMA")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+model account{
+    employer_category__c String?
+    employer_sub_category__c String?
+    gender__c String?
+    bank_account_fail_attempt__c Float?
+    shippingstate String?
+    numberofemployees Int?
+    ckyc_initiated__c Boolean?
+    employer_type__c String?
+    loan_amt_max__c Float?
+    category__c String?
+    tenure_min__c Float?
+    rent_amount__c Float?
+    salaried_max__c Float?
+    shippingpostalcode String?
+    billingcity String?
+    sub_category__c String?
+    photo_upload_attempt__c Float?
+    email__c String?
+    other_source_of_income__c String?
+    accountsource String?
+    shippingcountry String?
+    first_name__c String?
+    cin_no__c String?
+    co_applicant_s_last_name__c String?
+    name String?
+    self_employed_with_aqb__c String?
+    date_of_birth_applicant__c DateTime?
+    pin_code__c String?
+    co_applicant_s_first_name__c String?
+    duration_tenure__c Float?
+    phone String? @unique
+    ownerid String?
+    is_pan_document_verified__c Boolean?
+    last_name__c String?
+    isdeleted Boolean?
+    profit_protected__c Boolean?
+    cash__c Float?
+    aadhar_number__c String?
+    systemmodstamp DateTime?
+    self_employed_min__c Float?
+    shippingstreet String?
+    error_message__c String?
+    billingpostalcode String?
+    tenure_max__c Float?
+    employer_name__c String?
+    rm_name__c String?
+    cost_of_borrowing_cob__c Float?
+    is_qde_2_form_done__c Boolean?
+    corporate_guarantee__c Float?
+    bank_name__c String?
+    ifsc__c String?
+    gstin__c String?
+    pm_name__c String?
+    createddate DateTime?
+    is_qde_1_form_done__c Boolean?
+    billingstate String?
+    accountnumber String?
+    salaried_min__c Float?
+    is_address_document_verified__c Boolean?
+    loan_amt_min__c Float?
+    name__c String?
+    occupation__c String?
+    pan_number__c String?
+    shippingcity String?
+    is_photo_verified__c Boolean?
+    kyc_address__c String?
+    agreement__c String?
+    pan_verified__c Boolean?
+    number__c Float?
+    salaried_cash_others__c Float?
+    createdbyid String?
+    other_ids__c String?
+    resident_type__c String?
+    type String?
+    is_bank_detail_verified__c Boolean?
+    billingcountry String?
+    about_the_merchant__c String?
+    cust_id__c String?
+    entity_name__c String?
+    agreement_status__c String?
+    is_name_match__c Boolean?
+    customer_account_status__c String?
+    agreement_expiry_date__c DateTime?
+    billingstreet String?
+    self_employed_max__c Float?
+    salaried_credit_in_bank_account__c Float?
+    mandate_limit__c Float?
+    account_status__c String?
+    monthly_income__c Float?
+    heroku_external_id__c String?
+    is_kyc_document_verified__c Boolean?
+    is_photo_uploaded__c Boolean?
+    is_pan_document_uploaded__c Boolean?
+    is_address_document_uploaded__c Boolean?
+    recordtypeid String?
+    industry String?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+    ipa_basic_bureau__c Float?
+    bank_account_number__c String?
+    device_id__c String?
+    temp_password__c String?
+    is_pan_confirm__c Boolean?
+    is_limit_confirm__c Boolean?
+    mpin__c String?
+    nach_provider__c String?
+    nach_register_date__c DateTime?
+    client_nach_id__c String?
+    is_nach_approved__c Boolean?
+    current_address_id__c String?
+    approved_pin_code__c Float?
+    merchant_logo_url__c String?
+    merchant_virtual_card_eligibility__c Boolean? @unique
+    website String?
+    lastname String?
+    firstname String?
+    secondary_email__c String?
+    secondary_mobile__c String?
+    lender_id__c String?
+    account_profile account_profile?
+    account_products account_products?
+    account_partner__c account_partner__c?
+    virtual_cart__c virtual_cart__c?
+    feedback account_feedback__c? @relation(fields: [sfid], references: [user_sfid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model opportunity {
+    merchant_name__c String?
+    approved_loan_amount__c Float?
+    accountid String?
+    merchant_product__c String?
+    name String?
+    kyc_nach_checklist_completed__c Boolean?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    available_limit_amount__c Float?
+    kyc_verified__c Boolean?
+    is_whitelisted__c Boolean?
+    bank_statement_verification__c Boolean?
+    kyc_pending__c Boolean?
+    createddate DateTime?  @default(now())
+    adjusted_amount__c Float?
+    approval_authority__c String?
+    applied_loan_amount__c Float?
+    budget_confirmed__c Boolean?
+    nextstep String?
+    approved_limit_amount__c Float?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+    stagename String?
+    payment_plan__c String?
+    loss_reason__c String?
+    closedate DateTime? @default(now())
+    contractid String?
+    heroku_external_id__c String?
+    mandate_limit_exceeded__c Boolean?
+    lender_name__c String?
+    verify_photo__c Boolean?
+    leadsource String?
+    amount Float?
+    loan_id__c String?
+    contactid String?
+    pre_disbursal_checklist_completed__c Boolean?
+    reason_description__c String?
+    bank_enach_eligible__c Boolean?
+    corporate_utility_code__c String?
+    date_of_txn__c DateTime?
+    date__c DateTime? @default(now())
+    type String?
+    corporate_name_user_name__c String?
+    description String?
+    loan_status__c String?
+    multiplier__c Float?
+    recordtypeid String?
+    pre_disbursal_checklist__c String?
+    physical_mandate_by_cs1__c String?
+    status__c String?
+    merchant_whitelisting_applicable__c String?
+    payment payment_plan__c? @relation(fields: [payment_plan__c], references: [sfid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model liveliness__c {
+    createddate DateTime @default(now())
+    isdeleted Boolean @default(false)
+    name String?
+    systemmodstamp DateTime @default(now())
+    customerid__c String @unique
+    liveness_score__c Float?
+    review_needed__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    heroku_external_id__c String?
+}
+
+model account_attachment{
+    id Int @id @default(autoincrement())
+    cust_id Int? 
+    document_id String?
+    document_type String?
+    doc__type String?
+    status Boolean @default(true)
+}
+
+model cashfree_bank {
+    id Int @id @default(autoincrement())
+    code String?
+    name String @unique
+}
+
+model account_products{
+  id Int @id @default(autoincrement())
+  account__c String? @unique
+  cust_id Int? @unique 
+  product_id String?
+  loan_amount Float?
+  product_list product_list?
+  account account? @relation(fields: [cust_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model address__c {
+    pincode__c String?
+    currencyisocode String?
+    lastvieweddate DateTime?
+    landmark__c String?
+    name String?
+    country__c String?
+    lastmodifieddate DateTime?
+    ownerid String?
+    address__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    state__c String?
+    createddate DateTime @default(now())
+    account__c String? @unique
+    city__c String?
+    lastreferenceddate DateTime?
+    heroku_external_id__c String?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+}
+
+model account_digilocker {
+  id Int @id @default(autoincrement())
+  cust_id Int? @unique
+  link String?
+  request_id String?
+  access_id String?
+}
+
+model product_list {
+  id Int @id @default(autoincrement())
+  product_name String?
+  icon String?
+  product_price Float?
+  loan_amount Float?
+  product account_products @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model pan_status_check__c{
+    currencyisocode String?
+    aadhaar_binding_status__c Boolean?
+    transaction_id__c String?
+    full_name__c String?
+    name String?
+    lastmodifieddate DateTime?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    status__c String?
+    is_match__c Boolean?
+    extra__c String?
+    createddate DateTime?
+    code__c String?
+    pricing_strategy__c String?
+    createdbyid String?
+    accountid__c String? @unique
+    message__c String?
+    heroku_external_id__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model pan_profile__c{
+    locality__c String?
+    address_match_result__c Boolean?
+    currencyisocode String?
+    gender__c String?
+    dob_match_result__c Boolean?
+    mobile_no__c String?
+    email_id__c String?
+    pan__c String?
+    status_code__c String?
+    first_name__c String?
+    name String?
+    match_result__c Boolean?
+    pin_code__c String?
+    country__c String?
+    building_name__c String?
+    lastmodifieddate DateTime?
+    middle_name__c String?
+    aadhaar_match__c Boolean?
+    last_name__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    state__c String?
+    dob_match_score__c Float?
+    address_match_score__c Float?
+    createddate DateTime @default(now())
+    city__c String?
+    name_match_result__c Boolean?
+    request_id__c String?
+    aadhaar_linked__c Boolean?
+    createdbyid String?
+    date_of_birth__c String?
+    accountid__c String?
+    street_name__c String?
+    name_match_score__c Float?
+    heroku_external_id__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model account_profile { 
+  acc_profile_id Int @id @default(autoincrement())
+  google_id String?
+  device_id String? @unique
+  mpin Int?
+  brand Int?
+  entity Int?
+  cin String?
+  gst String?
+  password String?
+  current_address Int?
+  onbording Int @default(0)
+  cust_id Int @unique
+  is_pan_confirmed__c Boolean?
+  is_limit_activated Boolean?
+  account account @relation(fields: [cust_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model log_history { 
+  log_id Int @id @default(autoincrement())
+  cust_id Int?
+  device_id String?
+  mobile_no String? 
+  device_type Int?
+  otp Int?
+  login_date DateTime?
+  logout_date DateTime?
+  login_status Int?
+}
+
+model bank_name_details__c {
+    bank_logo_url__c String?
+    account_aggregator__c String?
+    name String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    onemoney_code__c String?
+    status__c String?
+    bank_code__c String?
+    createddate DateTime? @default(now())
+    cashfree_code__c String?
+    variant__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model bank_account__c{
+    currencyisocode String?
+    account_name__c String?
+    account_number__c String?
+    name String?
+    lastmodifieddate DateTime?
+    isdeleted Boolean @default(false)
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    bank_name__c String? @unique
+    account_id__c String @unique
+    ifsc__c String?
+    createddate DateTime?
+    account_type__c String?
+    bank_txn_status__c Boolean?
+    bank_account_holder_name__c String?
+    createdbyid String?
+    branch_name__c String?
+    bank_response__c String?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+}
+
+model recordtype {
+    businessprocessid String?
+    name String @unique
+    sobjecttype String?
+    namespaceprefix String?
+    lastmodifieddate DateTime?
+    isactive Boolean @default(true)
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    developername String?
+    createddate DateTime?
+    createdbyid String?
+    description String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model payment_plan__c {
+    currencyisocode String?
+    moratorium_type__c String?
+    moratorium_amount__c Float?
+    first_emi_date__c DateTime?
+    moratorium__c String?
+    processing_fee__c Float?
+    interest_rate_apr__c Float?
+    name String?
+    moratorium_duration__c String?
+    scheme_masters__c String?
+    emi_amount__c Float?
+    lastmodifieddate DateTime?
+    last_emi_date__c DateTime?
+    ownerid String?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    frequency_of_payments__c String?
+    approved_plan__c Boolean?
+    overall_apr__c Float?
+    application__c String?
+    net_tenure__c Float?
+    createddate DateTime
+    selected_plan__c Boolean?
+    limit_application__c String?
+    fixed_rate__c Float?
+    disbursal_amount__c Float?
+    down_payment__c Float?
+    createdbyid String?
+    pre_emi_date__c DateTime?
+    pre_emi__c Float?
+    advance_emi__c Float?
+    loan_amount__c Float?
+    sfid String @unique
+    id Int @id @default(autoincrement())
+    opportunity opportunity?
+}
+
+model product2 {
+    audio_output_rms__c String?
+    acceleration__c Float?
+    auto_low_latency_mode__c Boolean?
+    campus__c String?
+    alumni__c String?
+    name String?
+    audio__c String?
+    awards__c String?
+    add_ons__c Boolean?
+    av__c Boolean?
+    address__c String?
+    anti_theft_alarm__c Boolean?
+    isdeleted Boolean?
+    camera_type__c String?
+    systemmodstamp DateTime? @default(now())
+    amenities_offered__c String?
+    batch_start_date__c DateTime?
+    bluetooth__c Float?
+    createddate DateTime? @default(now())
+    battery__c String?
+    anti_theft_system__c Boolean?
+    battery_capacity__c String?
+    allm__c Boolean?
+    battery_voltage__c Float?
+    battery_type__c String?
+    amenities_provided__c String?
+    aggregator__c String?
+    application_deadline__c DateTime?
+    batch_size__c String?
+    aspect_ratio__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    product_category__c String?
+    image_url__c String?
+    mrp__c Float?
+    delivery_tat__c String?
+    mop__c Float?
+    price__c Float?
+    stockkeepingunit String?
+    heroku_external_id__c String?
+    product_sub_category__c String?
+    locality__c String?
+    package_inclusion__c String?
+    fuel_type__c String?
+    hlg__c Boolean?
+    color__c String?
+    exchange__c Boolean?
+    live_channels__c Boolean?
+    flights__c Boolean?
+    classes_offered__c String?
+    display__c String?
+    cache__c String?
+    pass_switch__c Boolean?
+    currencyisocode String?
+    merchant_name__c String?
+    engine__c String?
+    charging_point__c Boolean?
+    stand_x_2__c Boolean?
+    supported_audio_formats__c String?
+    class_timings__c DateTime?
+    key_notes__c String?
+    visa__c Boolean?
+    size__c String?
+    tyre_type__c String?
+    speedometer__c String?
+    power_consumption__c String?
+    wheels_type__c Float?
+    mobile_charger__c Boolean?
+    memory__c String?
+    starting__c String?
+    dolby_atmos_passthrough_earc__c Boolean?
+    bus__c Boolean?
+    overview_of_the_product__c String?
+    speaker__c String?
+    core__c String?
+    mobile_app_urls__c String?
+    holiday_package__c Boolean?
+    screen_resolution__c String?
+    hotels__c Boolean?
+    family String?
+    exterior__c String?
+    network_support__c String?
+    design__c String?
+    manufacturer_information__c String?
+    affiliated_board__c String?
+    course_type__c String?
+    course_outline__c String?
+    ram__c String?
+    career_options__c String?
+    programme_type__c String?
+    key_features__c String?
+    reality_flow__c Boolean?
+    recordtypeid String?
+    externalid String?
+    usb_version__c Float?
+    loading_capacity__c String?
+    features__c String?
+    universal_search__c Boolean?
+    ok_google__c Boolean?
+    google_play_store__c Boolean?
+    description__c String?
+    loyalty_points__c Boolean?
+    seating_capacity__c Float?
+    rear_brake_diameter__c Float?
+    scholarships_available__c Boolean?
+    cpu_processor__c String?
+    x5_ms_input_lag_4k_60hz__c Boolean?
+    motor_power__c Float?
+    charging_time__c DateTime?
+    radio__c String?
+    lastvieweddate DateTime?
+    payment_structure__c String?
+    documents_required_for_admission__c String?
+    touch_type__c String?
+    fee_structure__c String?
+    charging_technology__c String?
+    type__c String?
+    current_previous_student_testimonials__c String?
+    user_manual__c Boolean?
+    parent_product__c String?
+    boot_space__c String?
+    deposit_amount__c Float?
+    events__c String?
+    select_cross_sell_product_category__c String?
+    admission_process__c String?
+    number_of_batteries__c Float?
+    sponsorship_details__c String?
+    internal_storage__c String?
+    fast_charging_time__c DateTime?
+    rear_suspension__c String?
+    course_duration__c String?
+    generation__c String?
+    touchpad_specification__c String?
+    version__c String?
+    learning_format__c String?
+    optical__c Boolean?
+    tyre__c String?
+    hdmi__c Float?
+    language__c String?
+    e_arc__c Boolean?
+    connectivity_specifications__c String?
+    weight__c String?
+    dci_p3__c String?
+    school_contact_details__c String?
+    select_cross_sell_product_sub_category__c String?
+    externaldatasourceid String?
+    front_brake_diameter__c Float?
+    ethernet__c Boolean?
+    success_stories__c String?
+    body_type__c String?
+    series__c String?
+    displacement__c Float?
+    entertainment_and_communication__c String?
+    about_the_college__c String?
+    isarchived Boolean?
+    offers__c String?
+    console__c String?
+    school_name__c String?
+    connectivity_options__c String?
+    suspensions__c String?
+    dolby_digital_decoder__c Boolean?
+    displayurl String?
+    headlight__c String?
+    ratings__c Float?
+    body_protection__c String?
+    light__c String?
+    lastmodifieddate DateTime?
+    kids_mode__c Boolean?
+    travel_insurance__c Boolean?
+    other_audio_features__c String?
+    set_weight_without_stand__c String?
+    hdr10__c Boolean?
+    wifi__c String?
+    admission_criteria__c String?
+    minimum_payment__c Float?
+    sensors_functions__c String?
+    central_lock__c Boolean?
+    internet_connectivity__c Boolean?
+    front_brake__c String?
+    bhp_max_power__c Float?
+    cruise__c Boolean?
+    screen_size__c String?
+    breaks__c String?
+    fast_charging__c Boolean?
+    scholarships_details__c String?
+    mobile_connectivity__c Boolean?
+    temperature__c String?
+    dimensions_and_capacity__c String?
+    package_contents__c String?
+    isactive Boolean?
+    mobile_application__c String?
+    humidity__c String?
+    programmes_offered__c String?
+    city_speed__c Float?
+    maps__latitude__s Float?
+    front_suspension__c String?
+    other_details__c String?
+    lastmodifiedbyid String?
+    safety__c String?
+    low_battery_indicator__c Boolean?
+    processor__c String?
+    about_the_test__c String?
+    status__c String?
+    max_weight_load__c Float?
+    seat_selection__c Boolean?
+    minimum_eligiblity__c String?
+    comfort_and_convienience__c String?
+    highlights_of_the_course__c String?
+    viewing_angle__c String?
+    location__latitude__s Float?
+    driving_range_per_charge__c Float?
+    interior__c String?
+    colors__c String?
+    storage_temperature__c String?
+    compatibility__c String?
+    tenants_type__c String?
+    rear_brake__c String?
+    glass_technology__c String?
+    cabs__c Boolean?
+    url__c String?
+    drive_type__c String?
+    city_speed_limit__c Float?
+    dolby_vision__c Boolean?
+    backlight__c String?
+    hostel__c String?
+    tank_capacity__c Float?
+    course_name__c String?
+    covid_19_policy__c String?
+    speaker_system__c String?
+    max_tourque__c String?
+    x3_5_mm__c Boolean?
+    os_platform__c String?
+    ex_showroom_price__c Float?
+    brake_type__c String?
+    clock__c Boolean?
+    delivery_mode__c String?
+    institutes_s_website__c String?
+    placements__c String?
+    display_specifications__c String?
+    screws_x_4__c Boolean?
+    turn_signal_lamp__c String?
+    casing__c String?
+    dimensions__c String?
+    product_rating__c Float?
+    operating_system__c String?
+    baggage_information__c Boolean?
+    ignition__c String?
+    card_slot__c String?
+    language_of_instruction__c String?
+    monthly_maintainance__c Float?
+    wheelbase__c Float?
+    seller_information__c String?
+    transmission_dropdown__c String?
+    meals_offered__c Boolean?
+    language_universe__c Boolean?
+    chromecast_built_in__c Boolean?
+    student_faculty_ratio__c String?
+    max_speed__c Float?
+    utility__c String?
+    naac_ratings__c Float?
+    wide_color_gamut_ntsc__c String?
+    monthly_rent__c Float?
+    response_time__c String?
+    video_url__c String?
+    course_url__c String?
+    exam_name__c String?
+    graphics__c String?
+    school_results__c String?
+    start_date__c DateTime?
+    nfc__c String?
+    educator_faculty_details__c String?
+    quantityunitofmeasure String?
+    entrance_exam_details__c String?
+    itinerary__c String?
+    camera_specifications__c String?
+    parents_testimonials__c String?
+    supported_picture_formats__c String?
+    torque__c Float?
+    microphone__c String?
+    location__longitude__s Float?
+    mileage__c Float?
+    motion_rate__c String?
+    varient__c String?
+    user_center__c Boolean?
+    school_address__c String?
+    power_supply_voltage_hz__c String?
+    createdbyid String?
+    keyboard_specifications__c String?
+    graphic_processor_gpu__c String?
+    train__c Boolean?
+    dts_virtual_x__c Boolean?
+    maps__longitude__s Float?
+    tyre_size__c String?
+    hdr_10__c Boolean?
+    suspension_steering_and_breaks__c String?
+    ram_bus_speed__c String?
+    supported_video_formats__c String?
+    height__c Float?
+    tail_light__c String?
+    set_weight_with_stand__c String?
+    productcode String?
+    user_reviews__c String?
+    model_name_number__c String?
+    description String?
+    chassis__c String?
+    width__c Float?
+    relative_humidity__c String?
+    lastreferenceddate DateTime?
+    sim_slot__c String?
+    x4k_hdr__c Boolean?
+    warranty_available__c Boolean?
+    length__c Float?
+    take_trial_classes__c String?
+    syllabus__c String?
+    registration_required__c Boolean?
+    storage_size__c String?
+    speed_range__c Float?
+    wheel_size__c Float?
+    ssd__c String?
+    wall_mount__c String?
+    usb__c String?
+    smart_recommendations__c Boolean?
+    mobile_app__c Boolean?
+    motor_type__c String?
+    ground_clearance__c Float?
+    school_ownership__c String?
+    vivid_picture_engine__c Boolean?
+    remote_control__c Boolean?
+    tripmeter__c String?
+    vehicle_body_type__c String?
+    transmission__c Float?
+    product_brand__c String? @unique
+    product_category_lu__c String? @unique
+    product_subcategory__c String? @unique
+    viewed_products__c viewed_products__c?
+    brand product_brand__c?
+    deals__c deals__c?
+    merchant_product__c merchant_product__c? @relation(fields: [sfid], references: [productid__c], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model merchant_product__c {
+    currencyisocode String?
+    lastvieweddate DateTime?
+    name String?
+    product_whitelisted__c Boolean?
+    lastmodifieddate DateTime?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    limitapplicationid__c String?
+    createddate DateTime?
+    productid__c String? @unique
+    createdbyid String?
+    accountid__c String? @unique
+    loan_amount__c Float?
+    lastreferenceddate DateTime?
+    sfid String?
+    id Int @id @default(autoincrement())
+    heroku_external_id__c String? @unique
+    mrp__c Float?
+    no_cost_emi__c Boolean?
+    min_avi_emi__c Float?
+    activate_product__c Boolean?
+    return_policy__c String?
+    protection_type__c String?
+    delivery_charge__c Float?
+    discount_rate__c Float?
+    cancellation_refund_policy__c String?
+    whitelisting__c Boolean?
+    year_of_manufacturing__c Float?
+    discount_amount__c Float?
+    offer_policy__c String?
+    cancellation_policy__c String?
+    on_road_price__c Float?
+    price_range__c Float?
+    reschedule_policy__c String?
+    offer_price__c Float?
+    product2 product2?
+}
+
+model bureau_hardpull_response__c {
+  id Int @id @default(autoincrement())
+  consumer_name_field2__c String?
+  consumer_name_field1__c String?
+  occupation_code__c String?
+  gender__c String?
+  date_of_entry_for_error_code__c String?
+  reference_number__c Float?
+  date_processed__c Float?
+  time_processed__c Float?
+  cibil_remarks_code__c String?
+  version__c Float?
+  name String?
+  error_segment_tag__c String?
+  net_gross_income_indicator__c String?
+  isdeleted Boolean?
+  systemmodstamp DateTime? @default(now())
+  date_of_entry_for_cibil_remarks_code__c String?
+  member_code__c String?
+  date_for_error_dispute_remarks_code__c String?
+  segment_tag__c String?
+  createddate DateTime? @default(now())
+  account__c String?
+  account_type__c String?
+  income__c Float?
+  subject_return_code__c Float?
+  date_of_birth__c String?
+  error_dispute_remarks_code2__c String?
+  enquiry_control_number__c String?
+  error_dispute_remarks_code1__c String?
+  consumer_name_field4__c String?
+  date_reported_and_certified__c String?
+  consumer_name_field3__c String?
+  error_code__c String?
+  sfid String?
+}
+
+model bureau_hardpull_segment__c {
+  id Int @id @default(autoincrement())
+  payment_frequency__c String?
+  pincode__c String?
+  actual_payment_amount__c Float?
+  credit_vision_demonetisation_algorithm4__c String?
+  reporting_member_short_name__c String?
+  currencyisocode String?
+  enquiry_purpose__c String?
+  credit_vision_demonetisation_algorithm3__c String?
+  credit_vision_demonetisation_algorithm2__c String?
+  enquiring_member_short_name__c String?
+  credit_vision_demonetisation_algorithm1__c String?
+  written_off_amount_principal__c Float?
+  date_of_entry_for_error_code__c String?
+  email_id__c String?
+  id_type__c String?
+  date_closed__c String?
+  recordtypeid String?
+  exclusion_code10__c String?
+  date_opened_disbursed__c String?
+  account_number__c Float?
+  score_date__c String?
+  date_of_entry__c DateTime?
+  state_code__c String?
+  type_of_collateral__c String?
+  bureau_characteristics17__c String?
+  amount_overdue__c Float?
+  cibil_remarks_code__c String?
+  number_of_accounts__c String?
+  score_name__c String?
+  high_credit_sanctioned_amount__c String?
+  name String?
+  bureau_characteristics27__c String?
+  exclusion_code6__c String?
+  payment_history2__c String?
+  bureau_characteristics37__c String?
+  exclusion_code5__c String?
+  repayment_tenure__c String?
+  net_gross_income_indicator__c String?
+  payment_history1__c String?
+  score_card_version__c String?
+  bureau_characteristics47__c String?
+  exclusion_code4__c String?
+  emi_amount__c Float?
+  current_balance__c Float?
+  payment_history_end_date__c DateTime?
+  lastmodifieddate DateTime? @default(now())
+  written_off_amount_total__c Float?
+  credit_limit__c String?
+  telephone_type__c Float?
+  exclusion_code3__c String?
+  enquiry_amount__c Float?
+  issue_date__c String?
+  exclusion_code2__c String?
+  isdeleted Boolean?
+  date_of_last_payment__c String?
+  member_short_name__c String?
+  systemmodstamp DateTime? @default(now())
+  date_of_entry_for_cibil_remarks_code__c String?
+  exclusion_code1__c String?
+  rate_of_interest__c Float?
+  lastmodifiedbyid String?
+  score__c String?
+  address_line1__c String?
+  credit_limit_high_credit_sanctioned_amt__c String?
+  date_for_error_dispute_remarks_code__c String?
+  value_of_collateral__c String?
+  live_closed_indicator__c String?
+  payment_history_start_date__c DateTime?
+  bureau_hardpull_response_id__c String?
+  cash_limit__c Float?
+  segment_tag__c String?
+  enriched_through_enquiry__c String?
+  suit_filed_wilful_default__c String?
+  score_card_name__c String?
+  id_number__c String?
+  createddate DateTime? @default(now())
+  reason_code5__c String?
+  account_group__c String?
+  date_of_enquiry__c DateTime?
+  account_type__c String?
+  reason_code4__c String?
+  reason_code3__c String?
+  reason_code2__c String?
+  reason_code1__c String?
+  createdbyid String?
+  address_category__c String?
+  credit_facility_status__c String?
+  error_dispute_remarks_code2__c String?
+  error_dispute_remarks_code1__c String?
+  residence_code__c Float?
+  settlement_amounts__c Float?
+  telephone_extension__c Float?
+  date_reported_and_certified__c String?
+  telephone_number__c String?
+  date_reported__c String?
+  error_code__c String?
+  sfid String?
+}
+
+
+model account_cards__c {
+    card_number__c String?
+    card_name__c String?
+    card_expiry__c String?
+    cvv String?
+    isSave Boolean?
+    sfid String @unique
+    upi_id__c String?
+    wallet String?
+    id Int @id @default(autoincrement())
+}
+
+model account_payments__c {
+    id Int @id @default(autoincrement())
+    card_id Int?
+    upi_id Int?
+    payment_type String?
+    user_sfid String?
+    payment_id String?
+    order_id String? @unique
+    order_token String?
+    status Boolean @default(false)
+}
+
+model bureau_response__c {
+    high_sanction_amount__c Float?
+    subscriber_name__c String?
+    multiplier__c Float?
+    ipa_basis_bureau__c String?
+    mob__c Float?
+    enquiry_reason__c String?
+    experian_score__c String?
+    app_no__c String?
+    credit_account_active__c String?
+    no_credit_card_in_180_pl_dpd__c Float?
+    system_code__c Float?
+    bureau_msg__c String?
+    imdb_fail__c String?
+    non_addon_trade_last_24mon_min_24vin__c Float?
+    finance_purpose__c String?
+    credit_card_utilization__c Float?
+    report_date__c DateTime? @default(now())
+    thin__c String?
+    user_message_text__c String?
+    unsecure_utilization_exclude_creditc__c String?
+    outstanding_balance_all__c String?
+    over_due_amoun_tgt_0__c Float?
+    version__c String?
+    report_time__c String?
+    name String?
+    bureau_desc__c String?
+    thirty_plus_in_last_3_months__c Float?
+    zero_plus_in_last_12_months__c Float?
+    report_number__c Float?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    total_no_of_tradeline__c Float?
+    thick_or_thin__c String?
+    enquiry_username__c String?
+    out_standing_balance_secured_percentage__c String?
+    amount_financed__c Float?
+    secured_tradelines__c String?
+    outstanding_balance_unsecured_percentage__c String?
+    createddate DateTime? @default(now())
+    bureau_score__c String?
+    duration_of_agreement__c Float?
+    account__c String?
+    credit_account_total__c String?
+    account_type__c String?
+    outstanding_balance_unsecured__c String?
+    derog_found__c String?
+    age_in_bureau_gt_24_months__c Float?
+    credit_account_default__c Float?
+    non_cc_tradelines__c String?
+    out_standing_balance_secured__c String?
+    derog_status__c String?
+    secured_tradewithin_24mon_with_18rtr__c Float?
+    cad_suit_filed_current_balance__c Float?
+    unsecured_tradelines__c String?
+    over_due_gt_5000_in_tradeline__c Float?
+    ipan_on_ipa__c String?
+    credit_account_closed__c String?
+    sf_will_fulde_fault_dbt_lsssma_sub__c Float?
+    ninty_plus_in_last_12_months__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    aapplication_update_time__c String?
+    heroku_external_id__c String?
+    unsecure_trade_within_24monwith18rtr__c String?
+    currencyisocode String?
+    lastvieweddate DateTime?
+    lastmodifieddate DateTime?
+    lastmodifiedbyid String?
+    lastactivitydate DateTime?
+    lastreferenceddate DateTime?
+    recordtypeid String?
+    application_status__c String?
+    application_work_list__c String?
+    zero_plus_in_last_3_months__c Float?
+    error_count__c Float?
+    application_update_date__c DateTime?
+    application_update_time__c String?
+    current_applicant_addition_address__c String?
+    customer_reference_id__c String?
+    application_id__c String?
+    createdbyid String?
+    subscriber__c String?
+    outstanding_balance_secured__c String?
+    message_text__c String?
+    }
+
+model applicant_detail__c {
+    first_name__c String?
+    flat_no_plot_no_house_no__c String?
+    name String?
+    mobile_phone_number__c String?
+    pin_code__c String?
+    country_code__c String?
+    last_name__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    income_tax_pan__c String?
+    state__c String?
+    createddate DateTime?
+    city__c String?
+    date_of_birth_applicant__c DateTime?
+    gender_code__c String?
+    income__c Float?
+    sfid String?
+    id Int @id @default(autoincrement())
+    bureau_response__c String?
+    heroku_external_id__c String?
+    time_with_employer__c String?
+    currencyisocode String?
+    voter_id_issue_date__c DateTime?
+    passport_issue_date__c DateTime?
+    road_no_name_area_locality__c String?
+    driver_license_number__c String?
+    email_id__c String?
+    marital_status__c String?
+    voters_identity_card__c String?
+    ration_card_number__c String?
+    pan_expiration_date__c DateTime?
+    universal_id_number__c String?
+    landmark__c String?
+    pan_issue_date__c DateTime?
+    passport_number__c String?
+    number_of_major_credit_card_held__c String?
+    lastmodifieddate DateTime?
+    telephone_number_applicant_lst__c String?
+    telephone_type__c String?
+    ownerid String?
+    lastmodifiedbyid String?
+    passport_expiration_date__c DateTime?
+    voter_id_expiration_date__c DateTime?
+    universal_id_expiration_date__c DateTime?
+    bldg_no_society_name__c String?
+    ration_card_expiration_date__c DateTime?
+    driver_license_issue_date__c DateTime?
+    middle_name_3__c String?
+    createdbyid String?
+    driver_license_expiration_date__c String?
+    middle_name_2__c String?
+    ration_card_issue_date__c DateTime?
+    middle_name_1__c String?
+    employment_status__c String?
+    telephone_extension__c String?
+    universal_id_issue_date__c String?
+}
+
+model cais_account_detail__c {
+    open_date__c DateTime? @default(now())
+    subscriber_name__c String?
+    occupation_code__c String?
+    month__c String?
+    non_credit_caps_last_90_days__c Float?
+    first_name_nonnormalized__c String?
+    non_credit_caps_last_7_days__c Float?
+    email_id__c String?
+    year__c String?
+    country_code_nonnormalized__c String?
+    account_number__c String?
+    currency_code__c String?
+    identification_number__c String?
+    non_credit_caps_last_30_days__c Float?
+    total_caps_last_90_days__c Float?
+    name String?
+    caps_last_180_days__c Float?
+    repayment_tenure__c String?
+    bureau_score_confid_level__c String?
+    payment_rating__c Float?
+    state_nonnormalized__c String?
+    current_balance__c String?
+    telephone_type__c String?
+    asset_classification__c String?
+    caps_last_90_days__c Float?
+    isdeleted Boolean?
+    date_of_last_payment__c DateTime?
+    systemmodstamp DateTime? @default(now())
+    date_of_addition__c DateTime?
+    income_tax_pan__c String?
+    total_caps_last_30_days__c Float?
+    total_caps_last_180_days__c Float?
+    account_holder_type_code__c String?
+    portfolio_type__c String?
+    second_line_of_address_nonnormalized__c String?
+    city_nonnormalized__c String?
+    days_past_due__c Float?
+    caps_last_30_days__c Float?
+    amount_past_due__c Float?
+    first_line_of_address_nonnormalized__c String?
+    createddate DateTime? @default(now())
+    bureau_score__c String?
+    non_credit_caps_last_180_days__c Float?
+    account_type__c String?
+    gender_code__c String?
+    caps_last_7_days__c Float?
+    address_indicator_nonnormalized__c String?
+    zip_postal_code_nonnormalized__c String?
+    date_of_birth__c DateTime? 
+    highest_credit_ororiginal_loan_amount__c String?
+    bureau_response__c String?
+    total_caps_last_7_days__c Float?
+    payment_history_profile__c String?
+    terms_frequency__c String?
+    telephone_number__c String?
+    account_status__c String?
+    date_reported__c DateTime? @default(now())
+    sfid String?
+    id Int @id @default(autoincrement())
+    heroku_external_id__c String?
+    middle_name3_nonnormalized__c String?
+    suit_filed_will_ful_default_written_off__c String?
+    value_of_credit_last_month__c String?
+    credit_limit_amount__c Float?
+    middle_name2_nonnormalized__c String?
+    currencyisocode String?
+    middle_name1_nonnormalized__c String?
+    mobile_telephone_number__c String?
+    caps_driver_license_number__c String?
+    surname_nonnormalized__c String?
+    written_off_amount_principal__c Float?
+    date_closed__c DateTime?
+    default_status_date__c DateTime?
+    consumer_comments__c String?
+    pan_expiration_date__c DateTime?
+    cais_holder_address_details__c String?
+    type_of_collateral__c String?
+    promotional_rate_flag__c String?
+    special_comment__c String?
+    income_indicator__c String?
+    pan_issue_date__c DateTime?
+    income_frequency_indicator__c String?
+    written_off_amount_total__c Float?
+    scheduled_monthly_payment_amount__c String?
+    cais_holder_phone_details__c String?
+    fifth_line_of_address_nonnormalized__c String?
+    rate_of_interest__c Float?
+    value_of_collateral__c String?
+    alias__c String?
+    written_off_settled_status__c String?
+    settlement_amount__c Float?
+    suit_filed_wilful_default__c String?
+    date_of_first_delinquency__c DateTime?
+    terms_duration__c String?
+    write_off_status_date__c DateTime?
+    cais_account_history__c String?
+    subscriber_comments__c String?
+    residence_code_nonnormalized__c String?
+    driver_license_issue_date__c DateTime?
+    income__c Float?
+    createdbyid String?
+    driver_license_expiration_date__c DateTime?
+    original_charge_off_amount__c String?
+    third_line_of_address_nonnormalized__c String?
+}
+
+model d2c_bureau { 
+    id Int @id @default(autoincrement())
+    First_Name__c String?
+    Middle_Name__c String?
+    Sur_Name__c String?
+    Last_Name__c String?
+    Gender__c String
+    Date_Of_Birth__c String?
+    Flat_Number String?
+    Pin_Code__c String?
+    City__c String?
+    State__c String?
+    Mobile_No__c String?
+    Email_Id__c String?
+    Reason String?
+    telephone_number_applicant_lst__c String?
+    telephone_type__c String?
+    passport_number__c String?
+    voter_id__c String?
+    aadhaar_Number__c String?
+    driverLicense_Number__c String?
+    no_Validation_ByPass Int?
+    email_Conditional_ByPass Int?
+  }
+
+  model bre_limit__c {
+      id Int @id @default(autoincrement())
+      account_type__c String?
+      imdb_fail__c String?
+      derog_found__c String?
+      additional_parameters__c String?
+      ipa_basis_bureau__c Float?
+      ipa_non_ipa__c String?
+      mobile_score__c Float?
+      age_in_bureau_gt_24_months__c Float?
+      cibil_score__c Float?
+      credit_card_utilization__c Float?
+      derog_status__c String?
+      high_sanction_amount__c Float?
+      mob__c Float?
+      multiplier__c Float?
+      ninty_plus_in_last_12_months__c Float?
+      no_credit_card_in_180_pldpd__c Float?
+      over_due_amount_gt0__c Float?
+      over_due_gt5000_in_tradeline__c Float?
+      sf_will_fulde_fault_dbt_lss_smasub__c Float?
+      thick_or_thin__c String?
+      thirty_plus_in_last_12_months__c Float?
+      thirty_plus_in_last_3_months__c Float?
+      total_no_of_tradeline__c Float?
+      unsecured_uitlization_exclude_cred_card__c Float?
+      zero_plus_in_last_12_months__c Float?
+      zero_plus_in_last_3_months__c Float?
+      nonaddon_tradlines_min_24_monts_vntage__c Float?
+      secured_trdlines_in_24_monts_with_18rtr__c Float?
+      unsecured_trdlines_in_24_monts_18rtr__c Float?
+}
+
+model users{
+    id Int @id @default(autoincrement())
+    mobileNumber String @unique 
+    username String?
+    role String?
+    email String?
+    owner String?
+    password String?
+    active_status Int?
+    last_login DateTime?
+}
+
+model ckyc_details__c {
+id Int @id @default(autoincrement())  
+account__c String?
+request_id__c String?
+parent_company__c String?
+request_status__c String?
+transaction_id__c String?
+transaction_status__c String?
+transaction_rejection_code__c String?
+transaction_rejection_description__c String?
+branch_code__c String?
+record_identifier__c String?
+application_form_no__c String?
+source_system__c String?
+source_system_segment__c String?
+api_tags__c String?
+remarks__c String?
+ckyc_available__c String?
+ckyc_account_type__c String?
+ckyc_id__c String?
+ckyc_age__c String?
+ckyc_father_name__c String?
+ckyc_image_type__c String?
+ckyc_gen_date__c String?
+ckyc_name__c String?
+ckyc_photo__c String?
+ckyc_request_id__c String?
+ckyc_request_date__c String?
+ckyc_updated_date__c String?
+ckyc_photo_bytes__c String?
+ckyc_remarks__c String?
+}
+
+model ckyc_file_details__c {
+  id Int @id @default(autoincrement())  
+  ckyc_id_type__c String?
+  ckyc_id_type_status__c String?
+  ckyc_id_remarks__c String?
+}
+
+model api_logger__c {
+    currencyisocode String?
+    response__c String?
+    status_code__c Float?
+    name String?
+    service__c String?
+    ownerid String?
+    isdeleted Boolean?
+    systemmodstamp DateTime @default(now())
+    class_name__c String?
+    request__c String?
+    createddate DateTime @default(now())
+    account__c String?
+    createdbyid String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    heroku_external_id__c String?
+}
+
+model custom_error__c {
+    name String?
+    exception_message__c String?
+    service__c String?
+    isdeleted Boolean @default(false)
+    systemmodstamp DateTime @default(now())
+    error_source__c String?
+    class_name__c String?
+    error_message__c String?
+    component_name__c String?
+    createddate DateTime @default(now())
+    account__c String?
+    user__c String?
+    object_name__c String?
+    exception_type__c String?
+    record_id__c String?
+    createdbyid String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    line_number__c Float?
+    method_name__c String?
+    heroku_external_id__c String?
+}
+
+model product_category__c {
+    createddate DateTime? @default(now())
+    isdeleted Boolean?
+    name String? @unique
+    systemmodstamp DateTime? @default(now())
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+    logo__c String?
+}
+
+model product_subcategory__c {
+    createddate DateTime? @default(now())
+    isdeleted Boolean?
+    name String? @unique
+    systemmodstamp DateTime? @default(now())
+    logo__c String?
+    product_category__c String? @unique
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+}
+
+model contentversion {
+    versionnumber String?
+    checksum String?
+    ismajorversion Boolean?
+    tagcsv String?
+    is_fraud_checked__c Boolean?
+    is_face_matched__c Boolean?
+    lastmodifieddate DateTime?
+    contentdocumentid String?
+    firstpublishlocationid String?
+    pathonclient String?
+    isdeleted Boolean?
+    contentmodifieddate DateTime?
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    islatest Boolean?
+    ratingcount Int?
+    contentmodifiedbyid String?
+    reasonforchange String?
+    contentbodyid String?
+    contenturl String?
+    createddate DateTime?
+    filetype String?
+    title String?
+    positiveratingcount Int?
+    contentsize Int?
+    isassetenabled Boolean?
+    textpreview String?
+    description String?
+    is_name_match__c Boolean?
+    negativeratingcount Int?
+    verified_by_service__c Boolean?
+    sfid String?
+    document_type__c String?
+    id Int @id @default(autoincrement())
+}
+
+model contentdocument {
+    publishstatus String?
+    fileextension String?
+    parentid String?
+    lastvieweddate DateTime? @default(now())
+    latestpublishedversionid String?
+    sharingprivacy String?
+    lastmodifieddate DateTime? @default(now())
+    ownerid String?
+    isdeleted Boolean?
+    contentmodifieddate DateTime?
+    systemmodstamp DateTime? @default(now())
+    archiveddate DateTime?
+    lastmodifiedbyid String?
+    sharingoption String?
+    contentassetid String?
+    archivedbyid String?
+    createddate DateTime? @default(now())
+    filetype String?
+    title String?
+    createdbyid String?
+    contentsize Int?
+    description String?
+    lastreferenceddate DateTime?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+}
+
+model favorite_products__c {
+    id Int @id @default(autoincrement())
+    account__id String?
+    product__id String? @unique
+    createddate DateTime? @default(now())
+}
+
+model viewed_products__c {
+    id Int @id @default(autoincrement())
+    account__id String?
+    product__id String?
+    createdDate DateTime @default(now())
+    product2 product2? @relation(fields: [product__id], references: [sfid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model role_access__c {
+    id Int @id @default(autoincrement())
+    role_name__c String?
+    owner_id String?
+    created_id String?
+}
+
+model role_module__c {
+    id Int @id @default(autoincrement())
+    name__c String?
+    owener__id String?
+    creadtedby__id String?
+    module_access__C module_access__C?
+}
+
+model module_access__C {
+    id Int @id @default(autoincrement())
+    module__id Int
+    role__id Int?
+    owner__id String?
+    createdby_id String?
+    create__c Int? @default(0)
+    read__c Int? @default(0)
+    update__c Int? @default(0)
+    role_module__c role_module__c? @relation(fields: [module__id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model bank_statement_analysis__c {
+    average_receipt_last_six_month__c Float?
+    doc_id__c String?
+    outward_cheque_bounce_count__c Float?
+    ifsc_code__c String?
+    average_balance_last_six_month__c Float?
+    inward_return_count__c Float?
+    average_balance_last_twelve_month__c Float?
+    document_type__c String?
+    total_net_credits__c Float?
+    account_name__c String?
+    period_end__c String?
+    outward_other_bounce_count__c Float?
+    email__c String?
+    account_number__c String?
+    average_receipt_last_twelve_month__c Float?
+    average_balance__c Float?
+    salary_count__c Float?
+    bank_full_name__c String?
+    name String?
+    inward_cheque_bounce_count__c Float?
+    fraud_score__c Float?
+    outward_return_count__c Float?
+    address__c String?
+    inward_emi_bounce_count__c Float?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    outward_return_amount__c Float?
+    status__c String?
+    inward_payment_bounce_count__c Float?
+    bank_name__c String?
+    createddate DateTime? @default(now())
+    account__c String?
+    bank_statement__c Boolean?
+    account_type__c String?
+    custom_average_balance__c Float?
+    outward_emi_bounce_count__c Float?
+    unmatched_cibil__c String?
+    pan_number__c String?
+    product_type__c String?
+    inward_return_amount__c Float?
+    error__c Boolean?
+    message__c String?
+    outward_payment_bounce_count__c Float?
+    inward_other_bounce_count__c Float?
+    period_start__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    od_cc_limit__c Float?
+}
+
+model cam_analysis_monthly__c {
+    no_of_credit__c Float?
+    gross_credit_amount__c Float?
+    no_of_debit__c Float?
+    currencyisocode String?
+    max_balance__c Float?
+    month__c String?
+    no_of_net_debit__c Float?
+    average_utilised_negative_eod_balance__c Float?
+    loan_disbursal__c Float?
+    custom_day_balances_5__c Float?
+    max_interest_servicing_days__c Float?
+    net_credit_amount__c Float?
+    max_overdrawn_amount__c Float?
+    custom_day_balances_15__c Float?
+    overall_av_positive_negative_eod_balance__c Float?
+    custom_day_balances_25__c Float?
+    internal_credits__c Float?
+    name String?
+    average_utilised_custom_day_balances__c Float?
+    custom_day_balances_10__c Float?
+    lastmodifieddate DateTime?
+    custom_day_balances_20__c Float?
+    monthly_avg_incl_od_cc_limit__c Float?
+    custom_day_balances_30__c Float?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    lastmodifiedbyid String?
+    maximum_continous_overdrawings__c Float?
+    min_balance__c Float?
+    no_of_outward_return__c Float?
+    bank_statement_analysis__c String?
+    average_unutilised_custom_day_balances__c Float?
+    inward_return__c Float?
+    net_debit_amount__c Float?
+    createddate DateTime? @default(now())
+    internal_debit__c Float?
+    gross_debit_amount__c Float?
+    no_of_net_credit__c Float?
+    outward_return__c Float?
+    no_of_inward_return__c Float?
+    sfid String?
+    id Int @id @default(autoincrement())
+    instances_of_overdrawings__c Float?
+}
+
+
+
+model bank_transactions__c {
+    emi__c Boolean?
+    cheque__c String?
+    month_year__c String?
+    payment_mode__c String?
+    type__c String?
+    amount__c Float?
+    holiday__c Boolean?
+    narration__c String?
+    id__c Float?
+    name String?
+    opening_balance__c Float?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    closing_balance__c Float?
+    transaction_date__c DateTime?
+    bank_statement_analysis__c String?
+    bill_payment__c Boolean?
+    createddate DateTime? @default(now())
+    ignorable_transaction__c Boolean?
+    name__c String?
+    salary__c Boolean?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model analysis_data__c {
+    total_credit_internal_transfer__c Float?
+    currencyisocode String?
+    no_of_minimum_balance_charges__c Float?
+    no_of_nontechnical_cheque_bounce__c Float?
+    total_bank_charges_amount__c Float?
+    month__c String?
+    total_debit_internal_transfer__c Float?
+    no_of_cheque_issued__c Float?
+    other_income_amount__c Float?
+    atm_withdrawals_amount__c Float?
+    net_credit_transactions_amount__c Float?
+    total_dd_cancel__c Float?
+    cheque_bounce_inward_amount__c Float?
+    no_of_cash_dep_40_to_50k__c Float?
+    maximum_balance__c Float?
+    no_of_cash_withdrawals__c Float?
+    total_payment_bounce_charges__c Float?
+    credit_transactions_amount__c Float?
+    total_interest_received__c Float?
+    total_holiday_amount__c Float?
+    total_ecs_nach_amount__c Float?
+    no_of_penal_charges__c Float?
+    no_of_technical_cheque_bounce__c Float?
+    loan_disbursal_amount__c Float?
+    no_of_reversal__c Float?
+    maximum_eod_balance__c Float?
+    payment_bounce_inward_amount__c Float?
+    name String?
+    no_of_cash_dep_9_to_10_l__c Float?
+    no_of_interest_paid__c Float?
+    no_of_cash_deposits__c Float?
+    no_of_emi__c Float?
+    total_emi_bounce_amount__c Float?
+    no_of_payment_bounce_outward__c Float?
+    cash_deposits_amount__c Float?
+    lastmodifieddate DateTime?
+    total_dd_issue__c Float?
+    average_eod_balance__c Float?
+    no_of_payment_bounce_inward__c Float?
+    no_of_net_debit_transactions__c Float?
+    isdeleted Boolean?
+    total_cheque_return_charges__c Float?
+    systemmodstamp DateTime? @default(now())
+    technical_cheque_bounce_amount__c Float?
+    lastmodifiedbyid String?
+    no_of_debit_transactions__c Float?
+    no_of_credit_transactions__c Float?
+    total_emi_amount__c Float?
+    no_of_credit_internal_transfer__c Float?
+    no_of_emi_bounce__c Float?
+    no_of_debit_internal_transfer__c Float?
+    no_of_net_credit_transactions__c Float?
+    no_of_atm_withdrawals__c Float?
+    no_of_dd_cancel__c Float?
+    bank_statement_analysis__c String?
+    debit_transactions_amount__c Float?
+    total_penal_charges_amount__c Float?
+    total_reversal_amount__c Float?
+    cheque_issued_amount__c Float?
+    salary_amount__c Float?
+    createddate DateTime? @default(now())
+    net_debit_transactions_amount__c Float?
+    no_of_interest_received__c Float?
+    payment_bounce_outward_amount__c Float?
+    minimum_balance__c Float?
+    no_of_payment_bounce_charges__c Float?
+    no_of_atm_wdl_above_2k__c Float?
+    no_of_cheque_deposits__c Float?
+    createdbyid String?
+    no_of_ecs_nach_transactions__c Float?
+    no_of_loan_disbursal__c Float?
+    no_of_cheque_bounce_outward__c Float?
+    median_balance__c Float?
+    cash_deposit_percentage__c Float?
+    cheque_bounce_outward_amount__c Float?
+    minimum_eod_balance__c Float?
+    total_interest_paid__c Float?
+    no_of_bank_charges__c Float?
+    no_of_holiday_transactions__c Float?
+    cash_withdrawals_amount__c Float?
+    non_technical_cheque_bounce_amount__c Float?
+    cheque_deposits_amount__c Float?
+    no_of_dd_issue__c Float?
+    no_of_cheque_return_charges__c Float?
+    no_of_cheque_bounce_inward__c Float?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+
+
+model daily_balance__c {
+    month__c String?
+    opening_balance__c Float?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    closing_balance__c Float?
+    date__c DateTime?
+    bank_statement_analysis__c String?
+    createddate DateTime? @default(now())
+    id Int @id @default(autoincrement())
+}
+
+model rand_cards__c {
+    id Int @id @default(autoincrement())
+    card_number String?
+    status String? @unique
+    response__c String?
+}
+
+model brand__c {
+    id Int @id @default(autoincrement())
+    name String?
+    icon String?
+}
+
+model virtual_cart__c {
+    currencyisocode String?
+    kyc_status__c String?
+    card_number__c String? @unique
+    name String?
+    kyc_ref_no__c String?
+    entity_id__c String?
+    lastmodifieddate DateTime?
+    ownerid String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    sor_customer_id__c String?
+    lastmodifiedbyid String?
+    status__c String?
+    kyc_expiry_date__c DateTime?
+    createddate DateTime?  @default(now())
+    account__c String? @unique
+    accountid__c String? @unique
+    shop_url__c String?
+    shop_id__c String?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+    vcard_number__c String? @unique
+    plan_id__c String?
+    vcard_expiry__c String?
+    card_limit__c Float?
+    vcard_cvv__c String?
+    account account? @relation(fields: [accountid__c], references: [sfid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model razor_customers__c {
+    id Int @id @default(autoincrement())
+    account__c String? @unique
+    customer_id String?
+}
+
+model account_partner__c {
+    related_account_partner__c String?
+    account_from__c String? @unique
+    name String?
+    role__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    createddate DateTime? @default(now())
+    account_to__c String?
+    createdbyid String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    account account? @relation(fields: [account_from__c], references: [sfid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model store__c {
+    id Int @id @default(autoincrement())
+    name String?
+    icon String?
+}
+
+model enach__c {
+    id Int @id @default(autoincrement())
+    account_id String?
+    download_status Int?
+    upload_status Int?
+    created_dated DateTime?
+}
+
+model faq__c {
+    currencyisocode String?
+    answer__c String?
+    name String?
+    ownerid String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    product__c String?
+    createddate DateTime? @default(now())
+    question__c String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model what_you_ll_learn__c {
+    description__c String?
+    name String?
+    title__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    lastactivitydate DateTime?
+    product__c String?
+    createddate DateTime? @default(now())
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model news_and_article__c {
+    currencyisocode String?
+    description__c String?
+    name String?
+    title__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    createddate DateTime? @default(now())
+    createdbyid String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model leading_instructors__c {
+    currencyisocode String?
+    description__c String?
+    name String?
+    dipartment__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    product__c String?
+    createddate DateTime? @default(now())
+    createdbyid String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model feedback__c {
+    currencyisocode String?
+    description__c String?
+    name String?
+    dipartment__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    product__c String?
+    createddate DateTime? @default(now())
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model custom_notification__c {
+    currencyisocode String?
+    lastvieweddate DateTime?
+    name String?
+    action__c String? @unique
+    lastmodifieddate DateTime?
+    ownerid String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    lastmodifiedbyid String?
+    status__c String? @default("pending")
+    createddate DateTime? @default(now())
+    account__c String? @unique
+    view_status__c Boolean?
+    createdbyid String?
+    ref_id__c String?
+    lastreferenceddate DateTime?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model vendor_log__c {
+    id Int @id @default(autoincrement())
+    type__c String?
+    service__c String?
+    account__c String? @unique
+    response__c String?
+    create_at DateTime? @default(now())
+}
+
+model user_search_history__c {
+    id Int @id @default(autoincrement())
+    account__c String? @unique
+    search__c String? @unique
+    created_at__c DateTime? @default(now())
+}
+
+model user_secondary_phone__c {
+    id Int @id @default(autoincrement())
+    account__c String? @unique
+    phone String?
+}
+
+model user_secondary_email__c {
+    id Int @id @default(autoincrement())
+    account__c String? @unique
+    email__c String?
+}
+
+model account_upi__c {
+    id Int @id @default(autoincrement())
+    account__c String? @unique
+    upi_id__c String? @unique
+}
+
+model account_feedback__c {
+    id Int @id @default(autoincrement())
+    user_sfid String? @unique
+    product_sfid String? @unique
+    star_count Int?
+    description String?
+    feedback_date DateTime? @default(now())
+    type__c Int? @default(0)
+    account account?
+}
+
+model wallets__c {
+    wallet_id Int @id @default(autoincrement())
+    wallet_name String? @unique
+    wallet_code Int
+    wallet_icon String?
+}
+
+model lender_group_map {
+    id Int @id @default(autoincrement())
+    group_id Int @unique
+    recipient_id Int?
+    lender_sfid String?
+    email_group_title email_group_title?
+}
+
+model email_group_title {
+    id Int @id @default(autoincrement())
+    title String? @unique
+    created_by String? @unique
+    lender_group_map lender_group_map? @relation(fields: [id], references: [group_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model document_fraud_check__c {
+    locality__c String?
+    street__c String?
+    mother__c String?
+    date_of_issue__c DateTime?
+    gender__c String?
+    qr__c String?
+    old_place_of_issue__c String?
+    old_passport_number__c String?
+    document_link__c String?
+    nationality__c String?
+    father__c String?
+    surname__c String?
+    source__c String?
+    status_code__c String?
+    tag__c String?
+    type__c String?
+    date_and_time_of_check__c DateTime?
+    year_of_birth__c String?
+    landmark__c String?
+    name String?
+    relationship__c String?
+    pin_code__c String?
+    passport_number__c String?
+    aadhar_is_masked__c String?
+    country_code__c String?
+    lastmodifieddate DateTime?
+    spouse__c String?
+    address__c String?
+    heroku_external_id__c String?
+    isdeleted Boolean?
+    is_black_white__c String?
+    systemmodstamp DateTime? @default(now())
+    lastmodifiedbyid String?
+    voter_id__c String?
+    address_line_2__c String?
+    status__c String?
+    address_line_1__c String?
+    state__c String?
+    mrz_line_2__c String?
+    mrz_line_1__c String?
+    place_of_birth__c String?
+    district__c String?
+    father_name__c String?
+    fraud_check_id__c String?
+    createddate DateTime? @default(now())
+    account__c String? @unique
+    name__c String?
+    aadhar_no__c String?
+    city__c String?
+    pan_number__c String?
+    date_of_expiry__c DateTime?
+    old_date_of_issue__c String?
+    is_api_executed__c Boolean?
+    place_of_issue__c String?
+    date_of_birth__c String?
+    house_number__c String?
+    mother_name__c String?
+    response_json__c String?
+    care_of__c String?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+}
+
+model face_match__c {
+    similarity__c Float?
+    first_face_top__c Float?
+    second_face_bottom__c Float?
+    currencyisocode String?
+    second_face_top__c Float?
+    first_face_bottom__c Float?
+    second_face_left__c Float?
+    document_link__c String?
+    is_verified__c Boolean?
+    transaction_id__c String?
+    first_face_left__c Float?
+    name String?
+    lastmodifieddate DateTime?
+    heroku_external_id__c String?
+    isdeleted Boolean?
+    systemmodstamp DateTime? @default(now())
+    lastmodifiedbyid String?
+    second_face_id__c Float?
+    facematch_id__c String?
+    extra__c String?
+    first_face_id__c Float?
+    createddate DateTime? @default(now())
+    code__c String?
+    account__c String? @unique
+    re_upload__c Boolean?
+    pricing_strategy__c String?
+    first_face_right__c Float?
+    message__c String?
+    second_face_right__c Float?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+}
+
+model virtual_card_collection__c {
+    createddate DateTime? @default(now())
+    isdeleted Boolean?
+    name String?
+    systemmodstamp DateTime? @default(now())
+    card_number__c Float? @unique
+    response__c String?
+    status__c String?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+}
+
+model deals__c {
+    merchantid__c String? @unique
+    currencyisocode String?
+    description__c String?
+    discount_percentage__c Float?
+    activate_deal__c Boolean?
+    name String?
+    lastmodifieddate DateTime?
+    ownerid String?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    lastmodifiedbyid String?
+    createddate DateTime?
+    ends_in__c DateTime?
+    productid__c String? @unique
+    createdbyid String?
+    sfid String?
+    id Int @id @default(autoincrement())
+    product2 product2? @relation(fields: [productid__c], references: [sfid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model merchant_brand__c {
+    id Int @id @default(autoincrement())
+    accountid__c String? @unique
+    brand__c String?
+}
+
+model product_brand__c {
+    createddate DateTime? @default(now())
+    isdeleted Boolean?
+    name String?
+    systemmodstamp DateTime? @default(now())
+    icon__c String?
+    sfid String? @unique
+    id Int @id @default(autoincrement())
+    product2 product2? @relation(fields: [sfid], references: [product_brand__c], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model case__c {
+    contactmobile String?
+    priority String?
+    reason String?
+    escalation_user_4th__c String?
+    escalation_user_2nd__c String?
+    category__c String?
+    accountid String?
+    escalation_user_3rd__c String?
+    call_type__c String?
+    isescalated Boolean?
+    issues__c String?
+    subject String?
+    contactphone String?
+    isdeleted Boolean?
+    systemmodstamp DateTime?
+    status String?
+    is_task_closed__c Boolean?
+    comments String?
+    createddate DateTime?
+    isclosed Boolean?
+    language String?
+    casenumber String?
+    type String?
+    closeddate DateTime?
+    contactid String?
+    escalation_user_1st__c String?
+    contactemail String?
+    description String?
+    contactfax String?
+    sfid String?
+    id Int @id @default(autoincrement())
+}
+
+model role__c {
+    id Int @id @default(autoincrement())
+    role_name__c String?
+    lender_role__c lender_role__c?
+}
+
+model lender_role__c {
+    id Int @id @default(autoincrement())
+    role__c Int? @unique
+    account__c String? @unique
+    role role__c? @relation(fields: [role__c], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model lender_permissions__c {
+    id Int @id @default(autoincrement())
+    permission__c String? @unique
+    account__c String? @unique
+}
+
+model permissions__c {
+    id Int @id @default(autoincrement())
+    permission_name__c String?
+}
+
+model lender_email_recipient {
+    recipient_id Int @id @default(autoincrement())
+    lender_sfid String?  @unique
+    email String? @unique
+    created_by String?  @unique
+    created_at DateTime? @default(now())
+}
+
+model emailreport__c {
+    id Int @id @default(autoincrement())
+    group_id Int?
+    lender_sfid String?
+    select_report String?
+    time_range String?
+    email_config String?
+    week_day String?
+    month_date String?
+    created_at DateTime? @default(now())
+}
+
+model merchant_category__c {
+    id Int @id @default(autoincrement())
+    account__c String? @unique
+    category__c String?
+    sub_category__c String?
+}
+
+model product_gallery__c {
+    id Int @id @default(autoincrement())
+    product_sfid String? @unique
+    media_type String?
+    image_url__c String?
+}

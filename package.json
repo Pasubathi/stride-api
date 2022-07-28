@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "engines": {
+    "node": ">=14.17.0",
+    "npm": ">=6.12.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.5",
+    "@prisma/client": "^3.1.1",
+    "cors": "^2.8.5",
+    "dom-parser": "^0.1.6",
+    "express-jwt": "^6.1.0",
+    "formidable": "^2.0.1",
+    "fs": "^0.0.1-security",
+    "html-pdf": "^3.0.1",
+    "html-pdf-node": "^1.0.8",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "multiparty": "^4.2.3",
+    "next": "latest",
+    "next-connect": "^0.12.2",
+    "nodemailer": "^6.7.2",
+    "pg-promise": "^10.11.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "request": "^2.88.2",
+    "swr": "^0.1.18",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "prisma": "^3.1.1"
+  },
+  "name": "nodenext",
+  "description": "Next.js ships with [API routes](https://github.com/vercel/next.js#api-routes), which provide an easy solution to build your own `API`. This example shows how it can be used to create your [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) `API`.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

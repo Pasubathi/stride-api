@@ -1,0 +1,38 @@
+=============
+heroku access
+=============
+id: parth.upadhyay@eduvanz.com
+pass: Eduvanz@123$
+
+============
+Heroku Clone
+============
+heroku git:clone -a eduvanz-api-01
+
+Salesforce login
+================
+https://eduvanz123--dev.my.salesforce.com/
+heroku@techmatrixconsulting.com.dev
+Welcome@Jira1
+
+[3:26 PM, 1/12/2022] Murugan Sir Tv Malai: Salesforce login
+================
+https://eduvanz123--dev.my.salesforce.com/
+heroku@techmatrixconsulting.com.dev
+WelcomeTMC1
+
+Host
+ec2-35-77-170-68.ap-northeast-1.compute.amazonaws.com
+Database
+drh3k8akaobm3
+Port
+5432
+User
+u3nho0705k1t9t
+Password
+pba5779682289847d67fc0514ab00209809967df45d3366ab4edde32d96d035ce
+
+merchant 012710000003Y6nAAE
+Customer 012710000003Y8PAAU
+
+Live Merchant user 7904209866 sfid = 00171000007JXM1AAO

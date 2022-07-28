@@ -1,0 +1,35 @@
+pgsql admin
+admin
+
+http://localhost:3000/api/users
+
+
+npx prisma generate
+npx next dev
+face recognition 
+softpull pending
+signin with google mobile 
+
+git add .
+git commit -m "commit title"
+git push
+
+git remote add origin git@github.com:rajyaho/eduvanz-web.git
+git branch -M main
+git push -u origin main
+
+
+ALTER TABLE account 
+ALTER COLUMN isdeleted
+SET DEFAULT FALSE;
+
+
+https://cartbi.com/index.html#/home
+
+username : prod@eduvanz
+password : eduvanz@prod
+Authkey : API://EOa8rq21GFl50wZtvkyymszzOcueHMKOoNGLHd/Nu7Y=
+
+CROS ERRPR 
+
+nextjs-cors Added
